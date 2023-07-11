@@ -3,6 +3,11 @@ import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import HomeScreen from './screens/HomeScreen';
+import AboutScreen from './screens/AboutScreen';
+import ContactScreen from './screens/ContactScreen';
+import BlogsScreen from './screens/BlogsScreen';
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
