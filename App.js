@@ -7,6 +7,7 @@ import HomeScreen from './screens/HomeScreen';
 import AboutScreen from './screens/AboutScreen';
 import ContactScreen from './screens/ContactScreen';
 import BlogsScreen from './screens/BlogsScreen';
+import PortfoliosScreen from './screens/PortfoliosScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,11 +17,32 @@ export default function App() {
       <StatusBar style="auto" />
 
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{
+          headerStyle: {
+            backgroundColor: '#f4511e',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="About" component={AboutScreen} />
           <Stack.Screen name="Contact" component={ContactScreen} />
-          <Stack.Screen name="Blogs" component={BlogsScreen} />
+          <Stack.Screen name="Blogs" component={BlogsScreen} options={{
+            title: 'My Blogs',
+            headerStyle: {
+              backgroundColor: 'blue',
+            },
+            headerTintColor: 'black',
+          }} />
+          <Stack.Screen name="Portfolios" component={PortfoliosScreen} options={{
+            title: 'My Portfolio Items',
+            headerStyle: {
+              backgroundColor: 'green',
+            },
+            headerTintColor: 'darkgrey',
+          }} />
         </Stack.Navigator>
       </NavigationContainer>
     </>

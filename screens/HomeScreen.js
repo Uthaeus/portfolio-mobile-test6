@@ -12,6 +12,7 @@ function HomeScreen({ navigation }) {
 
             <View style={styles.actionsContainer}>
                 <Button onPress={() => navigation.navigate('Blogs')} title="See My Blogs" />
+                <Button onPress={() => navigation.navigate('Portfolios')} title="Portfolio Items" />
             </View>
         </View>
     );
