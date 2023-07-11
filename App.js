@@ -11,7 +11,11 @@ export default function App() {
       <StatusBar style="auto" />
 
       <NavigationContainer>
-
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="About" component={AboutScreen} />
+          <Stack.Screen name="Contact" component={ContactScreen} />
+        </Stack.Navigator>
       </NavigationContainer>
     </>
   );
