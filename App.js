@@ -9,6 +9,8 @@ import ContactScreen from './screens/ContactScreen';
 import BlogsScreen from './screens/BlogsScreen';
 import PortfoliosScreen from './screens/PortfoliosScreen';
 
+import { GlobalColors } from './ui/GlobalColors';
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -19,9 +21,9 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{
           headerStyle: {
-            backgroundColor: '#f4511e',
+            backgroundColor: GlobalColors.silver,
           },
-          headerTintColor: '#fff',
+          headerTintColor: '#161616',
           headerTitleStyle: {
             fontWeight: 'bold',
           },
@@ -32,16 +34,16 @@ export default function App() {
           <Stack.Screen name="Blogs" component={BlogsScreen} options={{
             title: 'My Blogs',
             headerStyle: {
-              backgroundColor: 'blue',
+              backgroundColor: GlobalColors.blogBlue,
             },
-            headerTintColor: 'black',
+            headerTintColor: 'white',
           }} />
           <Stack.Screen name="Portfolios" component={PortfoliosScreen} options={{
             title: 'My Portfolio Items',
             headerStyle: {
-              backgroundColor: 'green',
+              backgroundColor: GlobalColors.portfolioTan,
             },
-            headerTintColor: 'darkgrey',
+            headerTintColor: '#161616',
           }} />
         </Stack.Navigator>
       </NavigationContainer>
