@@ -9,6 +9,10 @@ function HomeScreen({ navigation }) {
                 <Button onPress={() => navigation.navigate('About')} title="About Me" />
                 <Button onPress={() => navigation.navigate('Contact')} title="Contact Me" />
             </View>
+
+            <View style={styles.actionsContainer}>
+                <Button onPress={() => navigation.navigate('Blogs')} title="See My Blogs" />
+            </View>
         </View>
     );
 }
