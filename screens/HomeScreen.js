@@ -1,7 +1,7 @@
 import { View, Text, Button, StyleSheet } from "react-native";
 
 import LinkButton from "../ui/LinkButton";
-
+import image from '../assets/images/space-main.jpg';
 import { GlobalColors } from "../ui/GlobalColors";
 
 function HomeScreen({ navigation }) {
@@ -27,6 +27,7 @@ export default HomeScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        background: `url(${image})`,
     },
     title: {
         fontSize: 24,

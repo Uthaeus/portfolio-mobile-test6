@@ -14,16 +14,16 @@ export default LinkButton;
 
 const styles = StyleSheet.create({
     button: {
-        width: '33%',
+        width: '43%',
         height: 30,
         borderRadius: 3,
         borderWidth: 1,
         borderColor: GlobalColors.grey,
         shadowColor: 'black',
-        shadowOffset: { width: 1, height: 2 },
+        shadowOffset: { width: 1, height: 1 },
         shadowOpacity: 0.6,
-        shadowRadius: 3,
-        elevation: 3,
+        shadowRadius: 2,
+        elevation: 2,
         justifyContent: 'center',
         alignItems: 'center',
         marginVertical: 8
