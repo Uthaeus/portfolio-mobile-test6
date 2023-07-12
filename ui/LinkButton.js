@@ -4,8 +4,8 @@ import { GlobalColors } from "./GlobalColors";
 
 function LinkButton({ title, onPress, backgroundColor, color }) {
     return (
-        <Pressable onPress={onPress} style={[styles.button, {backgroundColor: backgroundColor || 'blue'}]}>
-            <Text style={[styles.buttonText, { color: color || 'white'}]}>{title}</Text>
+        <Pressable onPress={onPress} style={[styles.button, {backgroundColor: backgroundColor || GlobalColors.silver }]}>
+            <Text style={[styles.buttonText, { color: color || GlobalColors.black }]}>{title}</Text>
         </Pressable>
     );
 }
@@ -14,8 +14,8 @@ export default LinkButton;
 
 const styles = StyleSheet.create({
     button: {
-        width: '43%',
-        height: 30,
+        width: '48%',
+        height: 60,
         borderRadius: 3,
         borderWidth: 1,
         borderColor: GlobalColors.grey,
@@ -26,9 +26,10 @@ const styles = StyleSheet.create({
         elevation: 2,
         justifyContent: 'center',
         alignItems: 'center',
-        marginVertical: 8
+        marginVertical: 2
     },
     buttonText: {
-        fontSize: 14,
+        fontSize: 20,
+        fontWeight: 'bold',
     }
 });

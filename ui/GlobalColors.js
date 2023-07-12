@@ -16,5 +16,15 @@ export const GlobalColors = {
     brown: '#7f6d60',
     grey: '#767a7e',
     silver: '#c0c0c0',
-    lightSilver: '#d5d5d7'
+    lightSilver: '#d5d5d7',
+    ebony: '#555d50',
+    black: '#161616',
+    onyx: '#353839',
+    gray: '#555555',
+    outerSpace: '#414a4c',
+    coolBlack: '#151922',
+    navajoWhite: '#ffdead',
+    linen: 'e9dcc9',
+    ivory: '#fffff0',
+    timelessWhite: '#f1eadd',
 };
