@@ -27,4 +27,19 @@ const styles = StyleSheet.create({
     container: {
         padding: 10,
     },
+    title: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: GlobalColors.blogBlue,
+    },
+    bodyContainer: {
+        paddingVertical: 5,
+        marginHorizontal: 10, 
+        borderBottomWidth: 1,
+        borderBottomColor: GlobalColors.grey,
+    },
+    body: {
+        fontSize: 12,
+        color: GlobalColors.blogDarkBlue,
+    },
 });

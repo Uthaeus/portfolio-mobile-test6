@@ -5,6 +5,7 @@ import image from '../assets/images/hammer-thumb.jpg';
 
 import BlogItem from "../components/blogs/BlogItem";
 import { GlobalColors } from "../ui/GlobalColors";
+import BlogSidebar from "../components/blogs/BlogSidebar";
 
 function BlogsScreen() {
     const [blogs, setBlogs] = useState([]);
@@ -16,6 +17,10 @@ function BlogsScreen() {
             .catch(error => console.log('blogs.js', error));
     }, []);
 
+    function categoryFilterHandler() {
+        console.log('category filter pressed');
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -23,20 +28,23 @@ function BlogsScreen() {
                 <Image source={image} style={styles.image} />
             </View>
 
-            <View style={styles.listWrapper}>
-                <FlatList
-                    data={blogs}
-                    renderItem={({ item }) => {
-                        return (
-                            <BlogItem blog={item} onPress={() => console.log('pressed')} />
-                        );
-                    }}
-                    keyExtractor={item => item.id.toString()}
-                />
-            </View>
+            <View style={styles.body}>
+                <View style={styles.listWrapper}>
+                    <FlatList
+                        data={blogs}
+                        renderItem={({ item }) => {
+                            return (
+                                <BlogItem blog={item} onPress={() => console.log('pressed')} />
+                            );
+                        }}
+                        keyExtractor={item => item.id.toString()}
+                    />
+                </View>
 
-            <View style={styles.categoriesWrapper}>
-                
+                <View style={styles.categoriesWrapper}>
+                    <Text style={styles.categoriesTitle}>filter by category:</Text>
+                    <BlogSidebar onPress={categoryFilterHandler} />
+                </View>
             </View>
         </View>
     );
@@ -71,19 +79,21 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: GlobalColors.portfolioLightBlue,
+        color: 'white',
         marginLeft: 10,
     },
+    body: {
+        height: 600,
+        flexDirection: 'row',
+    },
     listWrapper: {
-        width: '96%',
-        height: 460,
-        borderWidth: 1,
-        borderColor: GlobalColors.grey,
-        marginHorizontal: '2%',
+        width: '65%',
     },
     categoriesWrapper: {
-        borderWidth: 1,
-        borderColor: GlobalColors.grey,
-        height: 160,
+        width: '35%',
+        padding: 10,
     },
+    categoriesTitle: {
+        fontSize: 10
+    }
 });
