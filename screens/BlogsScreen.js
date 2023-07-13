@@ -9,16 +9,29 @@ import BlogSidebar from "../components/blogs/BlogSidebar";
 
 function BlogsScreen() {
     const [blogs, setBlogs] = useState([]);
+    const [displayedBlogs, setDisplayedBlogs] = useState([]); 
+    const [currentCategory, setCurrentCategory] = useState('all');
 
     useEffect(() => {
         fetch('http://localhost:4000/blogs')
             .then(response => response.json())
-            .then(json => setBlogs(json))
+            .then(json => {
+                setBlogs(json);
+                setDisplayedBlogs(json);
+            })
             .catch(error => console.log('blogs.js', error));
     }, []);
 
-    function categoryFilterHandler() {
-        console.log('category filter pressed');
+    function categoryFilterHandler(cat) {
+        console.log('category filter pressed', cat);
+        setCurrentCategory(cat);
+        if (cat === 'all') {
+            setDisplayedBlogs(blogs);
+            return;
+        } else {
+            const filteredBlogs = blogs.filter(blog => blog.category === cat);
+            setDisplayedBlogs(filteredBlogs);
+        }
     }
 
     return (
@@ -31,7 +44,7 @@ function BlogsScreen() {
             <View style={styles.body}>
                 <View style={styles.listWrapper}>
                     <FlatList
-                        data={blogs}
+                        data={displayedBlogs}
                         renderItem={({ item }) => {
                             return (
                                 <BlogItem blog={item} onPress={() => console.log('pressed')} />
@@ -43,7 +56,8 @@ function BlogsScreen() {
 
                 <View style={styles.categoriesWrapper}>
                     <Text style={styles.categoriesTitle}>filter by category:</Text>
-                    <BlogSidebar onPress={categoryFilterHandler} />
+
+                    <BlogSidebar onPress={categoryFilterHandler} currentCategory={currentCategory} />
                 </View>
             </View>
         </View>
@@ -70,6 +84,10 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 20,
         backgroundColor: GlobalColors.blogDarkBlue,
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.6,
+        shadowRadius: 3,
     },
     image: {
         width: 75,
