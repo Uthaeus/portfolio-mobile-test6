@@ -8,6 +8,8 @@ import AboutScreen from "./screens/AboutScreen";
 import ContactScreen from "./screens/ContactScreen";
 import BlogsScreen from "./screens/BlogsScreen";
 import PortfoliosScreen from "./screens/PortfoliosScreen";
+import PortfolioDetailScreen from "./screens/PortfolioDetailScreen";
+import BlogDetailScreen from "./screens/BlogDetailScreen";
 
 import { GlobalColors } from "./ui/GlobalColors";
 
@@ -56,6 +58,28 @@ export default function App() {
                 backgroundColor: GlobalColors.blogBlue,
               },
               headerTintColor: GlobalColors.timelessWhite,
+            }}
+          />
+          <Stack.Screen 
+            name="BlogDetail"
+            component={BlogDetailScreen}
+            options={{
+              title: "Blog Detail",
+              headerStyle: {
+                backgroundColor: GlobalColors.blogBlue,
+              },
+              headerTintColor: GlobalColors.timelessWhite,
+            }}
+          />
+          <Stack.Screen 
+            name="PortfolioDetail"
+            component={PortfolioDetailScreen}
+            options={{
+              title: "Portfolio Detail",
+              headerStyle: {
+                backgroundColor: GlobalColors.portfolioTan,
+              },
+              headerTintColor: GlobalColors.black,
             }}
           />
           <Stack.Screen

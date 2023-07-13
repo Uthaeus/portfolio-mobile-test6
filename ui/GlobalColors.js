@@ -28,3 +28,14 @@ export const GlobalColors = {
     ivory: '#fffff0',
     timelessWhite: '#f1eadd',
 };
+
+// portfolio item
+// title
+// description
+// image
+// url
+// technologies (array)
+// portfolio_comments (array)
+// created_at
+// updated_at
+// id

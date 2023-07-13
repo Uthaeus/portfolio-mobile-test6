@@ -33,6 +33,10 @@ function BlogsScreen({ navigation }) {
         }
     }
 
+    function itemPressedHandler(id) {
+        navigation.navigate('BlogDetail', { id });
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -55,7 +59,7 @@ function BlogsScreen({ navigation }) {
                         data={displayedBlogs}
                         renderItem={({ item }) => {
                             return (
-                                <BlogItem blog={item} onPress={() => console.log('pressed')} />
+                                <BlogItem blog={item} onPress={itemPressedHandler} />
                             );
                         }}
                         keyExtractor={item => item.id.toString()}

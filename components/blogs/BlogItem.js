@@ -10,7 +10,7 @@ function BlogItem( { blog, onPress } ) {
 
     return (
         <View style={styles.container}>
-            <Pressable onPress={onPress}>
+            <Pressable onPress={() => onPress(blog.id)}>
                 <Text style={styles.title}>{blog.title}</Text>
 
                 <View style={styles.bodyContainer}>
