@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Text, View, StyleSheet, FlatList, Image } from "react-native";
+import { Text, View, StyleSheet, FlatList, Image, Pressable } from "react-native";
 
 import image from '../assets/images/hammer-thumb.jpg';
 
@@ -7,7 +7,7 @@ import BlogItem from "../components/blogs/BlogItem";
 import { GlobalColors } from "../ui/GlobalColors";
 import BlogSidebar from "../components/blogs/BlogSidebar";
 
-function BlogsScreen() {
+function BlogsScreen({ navigation }) {
     const [blogs, setBlogs] = useState([]);
     const [displayedBlogs, setDisplayedBlogs] = useState([]); 
     const [currentCategory, setCurrentCategory] = useState('all');
@@ -23,13 +23,12 @@ function BlogsScreen() {
     }, []);
 
     function categoryFilterHandler(cat) {
-        console.log('category filter pressed', cat);
         setCurrentCategory(cat);
         if (cat === 'all') {
             setDisplayedBlogs(blogs);
             return;
         } else {
-            const filteredBlogs = blogs.filter(blog => blog.category === cat);
+            const filteredBlogs = blogs.filter(blog => blog.category_id === cat);
             setDisplayedBlogs(filteredBlogs);
         }
     }
@@ -37,7 +36,16 @@ function BlogsScreen() {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.title}>My Blogs</Text>
+                <View style={styles.headerLeft}>
+                    <Text style={styles.title}>My Blogs</Text>
+
+                    <View style={styles.headerLink}>
+                        <Pressable onPress={() => navigation.navigate('Portfolios')}>
+                            <Text style={styles.link}>visit my portfolios</Text>
+                        </Pressable>
+                    </View>
+                </View>
+
                 <Image source={image} style={styles.image} />
             </View>
 
@@ -100,6 +108,27 @@ const styles = StyleSheet.create({
         color: 'white',
         marginLeft: 10,
     },
+    headerLeft: {
+        flexDirection: 'column',
+    },
+    headerLink: {
+        marginTop: 10,
+        marginLeft: 20,
+        paddingVertical: 0,
+        paddingHorizontal: 5,
+        borderWidth: 1,
+        borderRadius: 3,
+        borderColor: GlobalColors.grey,
+        backgroundColor: GlobalColors.lightSilver,
+        shadowColor: GlobalColors.outerSpace,
+        shadowOffset: { width: 1, height: 1 },
+        shadowOpacity: 0.6,
+        shadowRadius: 2,
+    },
+    link: {
+        fontSize: 12,
+        color: GlobalColors.outerSpace,
+    },
     body: {
         height: 600,
         flexDirection: 'row',
@@ -108,8 +137,11 @@ const styles = StyleSheet.create({
         width: '65%',
     },
     categoriesWrapper: {
-        width: '35%',
+        width: '33%',
+        height: 500,
+        marginRight: '2%',
         padding: 10,
+        backgroundColor: GlobalColors.lightSilver,
     },
     categoriesTitle: {
         fontSize: 10

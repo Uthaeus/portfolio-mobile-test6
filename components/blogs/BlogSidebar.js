@@ -23,11 +23,11 @@ function BlogSidebar({ onPress, currentCategory }) {
         renderItem={({ item }) => {
           return (
             <View style={styles.categoryWrapper}>
-              <Pressable onPress={() => onPress(item.name)}>
+              <Pressable onPress={() => onPress(item.id)}>
                 <Text
                   style={[
                     styles.category,
-                    currentCategory === item.name && styles.activeCategory,
+                    currentCategory === item.id && styles.activeCategory,
                   ]}
                 >
                   {item.name}
@@ -53,6 +53,8 @@ const styles = StyleSheet.create({
     color: GlobalColors.outerSpace,
     marginVertical: 5,
     marginLeft: 10,
+    paddingVertical: 5,
+    paddingLeft: 5,
   },
   categoryWrapper: {
     paddingVertical: 5,
